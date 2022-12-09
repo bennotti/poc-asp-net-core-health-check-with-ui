@@ -1,0 +1,16 @@
+﻿/*https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/blob/master/doc/styles-branding.md*/
+
+:root {
+    --bgMain: #2f2f2f; /* background color */
+    --fcBase: #fff; /* font color */
+    --bgMenuActive: #2f2f2f; /* background color of active menu item */
+    --bcMenuActive: #2f2f2f; /* border color of active menu item */
+    --primaryColor: #00000; /* primary color */
+    --secondaryColor: #9343d1; /* secondary color */
+    --bgMenuActive: #2f2f2f; /* background color of menu item when active */
+    --bgButton: #2f2f2f; /* background color of button */
+    --logoImageUrl: url('https://ui-avatars.com/api/?background=random'); /* logo image url */
+    --bgAside: #2f2f2f; /* background color of aside */
+    --bgTable: #2f2f2f; /* background color of table */
+    --bgTableSecondary: #2f2f2f; /* secondary background color of table */
+}
