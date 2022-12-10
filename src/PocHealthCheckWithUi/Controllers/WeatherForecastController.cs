@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace PocHealthCheckWithUi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [EnableRateLimiting("fixed")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -28,6 +30,20 @@ namespace PocHealthCheckWithUi.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("ping")]
+        [EnableRateLimiting("sliding")]
+        public IActionResult Ping()
+        {
+            return Ok("pong");
+        }
+
+        [HttpGet("ping2")]
+        [EnableRateLimiting("fixed")]
+        public IActionResult Ping2()
+        {
+            return Ok("pong2");
         }
     }
 }
