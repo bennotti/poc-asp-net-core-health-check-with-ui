@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocHealthCheckWithUi", "PocHealthCheckWithUi.csproj", "{34A8C348-D2E4-4808-A2E6-8AC0B9D4613B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocHealthCheckWithUi", "PocHealthCheckWithUi.csproj", "{34A8C348-D2E4-4808-A2E6-8AC0B9D4613B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocHealthCheckService2", "..\PocHealthCheckService2\PocHealthCheckService2.csproj", "{F8BD5B6B-A183-4F67-9655-7243F86BB450}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocHealthCheckService2", "..\PocHealthCheckService2\PocHealthCheckService2.csproj", "{F8BD5B6B-A183-4F67-9655-7243F86BB450}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocHealthCheckAddServiceRuntime", "..\PocHealthCheckAddServiceRuntime\PocHealthCheckAddServiceRuntime.csproj", "{BA9A0F44-BFC3-42E5-9CCE-A32EA90C08A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F8BD5B6B-A183-4F67-9655-7243F86BB450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8BD5B6B-A183-4F67-9655-7243F86BB450}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8BD5B6B-A183-4F67-9655-7243F86BB450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA9A0F44-BFC3-42E5-9CCE-A32EA90C08A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9A0F44-BFC3-42E5-9CCE-A32EA90C08A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9A0F44-BFC3-42E5-9CCE-A32EA90C08A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9A0F44-BFC3-42E5-9CCE-A32EA90C08A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,42 @@
 using HealthChecks.UI.Client;
+using HealthChecks.UI.Configuration;
+using HealthChecks.UI.Core.Data;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.RateLimiting;
 using PocHealthCheckWithUi;
+using Serilog;
+using Serilog.Events;
 using System.Globalization;
 using System.Net;
 using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+.MinimumLevel.Debug()
+.MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+.Enrich.FromLogContext()
+.WriteTo.Console()
+.CreateLogger();
+
+var env = builder.Environment;
+
+builder.Host.UseSerilog()
+.ConfigureAppConfiguration((hostingContext, config) =>
+{
+    config
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile($"appsettings.json", optional: true, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
+        .AddJsonFile($"appsettings.local.json", optional: true, reloadOnChange: true)
+        .AddJsonFile($"ocelot.json", optional: true, reloadOnChange: true)
+        .AddJsonFile($"ocelot.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
+        .AddEnvironmentVariables();
+});
+
+builder.Services.Configure<CustomSettingsUi>(builder.Configuration.GetSection("HealthChecksUI"));
+
+Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
 
 builder.Services.AddCors();
 builder.Services.AddControllers();
