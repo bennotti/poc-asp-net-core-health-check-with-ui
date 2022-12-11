@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocHealthCheckWithUi", "Poc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocHealthCheckService2", "..\PocHealthCheckService2\PocHealthCheckService2.csproj", "{F8BD5B6B-A183-4F67-9655-7243F86BB450}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocHealthCheckAddServiceRuntime", "..\PocHealthCheckAddServiceRuntime\PocHealthCheckAddServiceRuntime.csproj", "{BA9A0F44-BFC3-42E5-9CCE-A32EA90C08A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocHealthCheckAddServiceRuntime", "..\PocHealthCheckAddServiceRuntime\PocHealthCheckAddServiceRuntime.csproj", "{BA9A0F44-BFC3-42E5-9CCE-A32EA90C08A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

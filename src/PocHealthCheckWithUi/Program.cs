@@ -34,8 +34,6 @@ builder.Host.UseSerilog()
         .AddEnvironmentVariables();
 });
 
-builder.Services.Configure<CustomSettingsUi>(builder.Configuration.GetSection("HealthChecksUI"));
-
 Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
 
 builder.Services.AddCors();
@@ -50,7 +48,7 @@ builder.Services.AddHealthChecksUI(options =>
     options.AddHealthCheckEndpoint("PocHealthCheckWithUI", "/health");
     //options.AddHealthCheckEndpoint("PocHealthCheckService2", "https://localhost:7213/health");
 })
-.AddInMemoryStorage();
+.AddSqliteStorage($"Data Source=sqlite.db");
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -123,6 +121,7 @@ app.MapHealthChecksUI();
 app.UseHealthChecksUI(options => {
     options.UIPath = "/dashboard";
     options.AddCustomStylesheet("customLogo.css");
+    options.AsideMenuOpened = false;
 });
 
 

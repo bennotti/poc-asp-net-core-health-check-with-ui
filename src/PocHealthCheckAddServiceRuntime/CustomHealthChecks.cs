@@ -4,11 +4,16 @@ namespace PocHealthCheckAddServiceRuntime
 {
     public class CustomHealthChecks : IHealthCheck
     {
+        private readonly Random random = new Random();
+        private IList<HealthStatus> list = new List<HealthStatus> { HealthStatus.Healthy, HealthStatus.Unhealthy, HealthStatus.Degraded };
+        private int index = 0;
+        private DateTime proximaMudanca = DateTime.UtcNow;
         public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
-            var random = new Random();
-            var list = new List<HealthStatus> { HealthStatus.Healthy, HealthStatus.Unhealthy, HealthStatus.Degraded };
-            int index = random.Next(list.Count);
+            if (DateTime.UtcNow >= proximaMudanca) {
+                index = random.Next(list.Count);
+                proximaMudanca = DateTime.UtcNow.AddMinutes(5);
+            }
 
             return Task.FromResult(new HealthCheckResult(
                 status: list[index],
